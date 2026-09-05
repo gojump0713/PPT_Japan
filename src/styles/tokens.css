@@ -1,0 +1,54 @@
+/* ─── Design Tokens ───────────────────────────────────────────
+   다크 네이비 프리미엄 엔터프라이즈 컨퍼런스 톤.
+   1920×1080 고정 캔버스 기준 절대 px 사용 (StageScaler가 전체 스케일). */
+
+:root {
+  /* Background */
+  --bg-0: #050e18;
+  --bg-1: #071521;
+  --bg-2: #0b1f33;
+  --bg-3: #10293f;
+  --bg-panel: rgba(13, 34, 53, 0.72);
+  --bg-panel-solid: #0d2235;
+
+  /* Lines / data */
+  --cyan: #38c8e8;
+  --cyan-soft: #59d6ee;
+  --teal: #2ea8a0;
+  --teal-soft: #4cc9c0;
+  --blue: #3b82c4;
+  --line-dim: rgba(56, 200, 232, 0.28);
+  --line-faint: rgba(56, 200, 232, 0.12);
+
+  /* Text */
+  --text-hi: #f2f7fb;
+  --text-mid: #b9c9d6;
+  --text-dim: #8fa1b3;
+  --text-faint: #5b6f80;
+
+  /* Accent (제한적 사용) */
+  --warn: #e8734a;
+  --danger: #e05252;
+  --ok: #4ade80;
+  --gold: #d9b46a;
+
+  /* Typography */
+  --font-sans: 'Pretendard Variable', Pretendard, 'Noto Sans KR', 'Noto Sans JP',
+    -apple-system, 'Segoe UI', 'Malgun Gothic', 'Yu Gothic', sans-serif;
+  --font-num: 'Pretendard Variable', Pretendard, 'Segoe UI', sans-serif;
+
+  --fs-headline: 64px;   /* 56~80 */
+  --fs-headline-lg: 76px;
+  --fs-data: 128px;      /* 96~160 */
+  --fs-data-sm: 96px;
+  --fs-sub: 27px;        /* 24~32 */
+  --fs-label: 18px;
+  --fs-source: 13px;     /* 12~14 */
+
+  /* Motion */
+  --ease-main: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-base: 0.65s;
+
+  /* Layout */
+  --copy-left: 176px;    /* 좌측 ~9% */
+}
