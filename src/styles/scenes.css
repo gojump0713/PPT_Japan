@@ -1,0 +1,232 @@
+/* ─── Scene 공용 스타일 ───────────────────────────────────────
+   각 Scene 컴포넌트가 공유하는 레이아웃 idiom.
+   위치는 1920×1080 고정 캔버스 기준 절대 px. */
+
+/* 챕터 라벨 (좌상단) */
+.chapter-chip {
+  position: absolute;
+  top: 56px;
+  left: var(--copy-left);
+  z-index: 20;
+}
+
+/* ─── 카드 (개념 블록) ───────────────────────────────────── */
+.kcard {
+  border-radius: 14px;
+  border: 1px solid var(--line-dim);
+  background: var(--bg-panel);
+  padding: 26px 30px;
+  will-change: transform, opacity;
+}
+.kcard .kc-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-hi);
+  letter-spacing: -0.01em;
+}
+.kcard .kc-sub {
+  margin-top: 8px;
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--text-dim);
+}
+.kcard.glow {
+  border-color: var(--cyan);
+  box-shadow: 0 0 34px rgba(56, 200, 232, 0.22);
+}
+.kcard.danger {
+  border-color: rgba(224, 82, 82, 0.55);
+  background: rgba(46, 16, 20, 0.55);
+}
+
+/* ─── 원형 노드 ──────────────────────────────────────────── */
+.knode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-dim);
+  background: var(--bg-panel-solid);
+  color: var(--text-hi);
+  font-weight: 700;
+  text-align: center;
+  will-change: transform, opacity;
+}
+.knode .kn-sub { font-size: 13px; font-weight: 500; color: var(--text-dim); }
+.knode.glow {
+  border-color: var(--cyan);
+  box-shadow: 0 0 30px rgba(56, 200, 232, 0.35);
+  color: var(--cyan-soft);
+}
+
+/* ─── Scene 1 연도 타임라인 ──────────────────────────────── */
+.era-timeline {
+  position: absolute;
+  left: 176px;
+  right: 176px;
+  bottom: 150px;
+  z-index: 20;
+}
+.era-timeline .et-year {
+  font-family: var(--font-num);
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--text-mid);
+  letter-spacing: 0.02em;
+}
+.era-timeline .et-year.hot { color: var(--cyan-soft); }
+.era-timeline .et-label { font-size: 15px; color: var(--text-faint); margin-top: 6px; }
+
+/* ─── Scene 4 계단 bar ───────────────────────────────────── */
+.stair-chart { position: absolute; right: 176px; bottom: 190px; display: flex; align-items: flex-end; gap: 34px; }
+.stair-chart .sc-col { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.stair-chart .sc-bar {
+  width: 96px;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(180deg, var(--cyan), rgba(46, 168, 160, 0.55));
+  transform-origin: bottom;
+  will-change: transform;
+}
+.stair-chart .sc-pct { font-family: var(--font-num); font-size: 26px; font-weight: 700; color: var(--text-hi); }
+.stair-chart .sc-year { font-size: 15px; color: var(--text-dim); }
+
+/* ─── Scene 7 PC grid ────────────────────────────────────── */
+.pc-grid {
+  position: absolute;
+  right: 176px;
+  top: 260px;
+  display: grid;
+  grid-template-columns: repeat(6, 92px);
+  gap: 22px;
+}
+.pc-grid .pc {
+  width: 92px;
+  height: 72px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(139, 161, 179, 0.3);
+  background: var(--bg-2);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  color: var(--text-faint);
+  will-change: transform, opacity;
+}
+.pc-grid .pc.gpu {
+  border-color: var(--cyan);
+  color: var(--cyan-soft);
+  box-shadow: 0 0 22px rgba(56, 200, 232, 0.3);
+}
+.pc-grid .pc.idle { opacity: 0.38; }
+
+/* ─── Scene 9 GPU pool ───────────────────────────────────── */
+.gpu-pool { display: flex; flex-wrap: wrap; gap: 14px; width: 520px; }
+.gpu-pool .gt {
+  width: 74px;
+  height: 54px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(139, 161, 179, 0.3);
+  background: var(--bg-2);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  transition: border-color 0.4s var(--ease-main), box-shadow 0.4s var(--ease-main), color 0.4s var(--ease-main);
+}
+.gpu-pool .gt.on { border-color: var(--cyan); color: var(--cyan-soft); box-shadow: 0 0 18px rgba(56, 200, 232, 0.28); }
+.gpu-pool .gt.warm { border-color: var(--teal-soft); color: var(--teal-soft); }
+
+/* ─── Scene 13 stack ─────────────────────────────────────── */
+.stack4 { position: absolute; left: 176px; bottom: 170px; width: 760px; display: flex; flex-direction: column-reverse; gap: 14px; }
+.stack4 .layer {
+  height: 92px;
+  border-radius: 12px;
+  border: 1px solid var(--line-dim);
+  background: var(--bg-panel);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 30px;
+  will-change: transform, opacity;
+}
+.stack4 .layer .l-idx { font-family: var(--font-num); font-size: 15px; color: var(--text-faint); letter-spacing: 0.14em; }
+.stack4 .layer .l-name { font-size: 24px; font-weight: 700; color: var(--text-hi); }
+.stack4 .layer .l-sub { font-size: 15px; color: var(--text-dim); margin-left: auto; text-align: right; }
+.stack4 .layer.top { border-color: var(--cyan); box-shadow: 0 0 30px rgba(56, 200, 232, 0.2); }
+
+/* 통제 포인트 chip */
+.ctrl-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line-dim);
+  background: var(--bg-panel-solid);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-mid);
+  will-change: transform, opacity;
+}
+.ctrl-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); }
+.ctrl-chip.ok .dot { background: var(--ok); }
+
+/* ─── Scene 16/17 evolution ribbon ───────────────────────── */
+.evo-step { display: flex; flex-direction: column; align-items: center; gap: 12px; will-change: transform, opacity; }
+.evo-step .es-node {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--cyan);
+  background: var(--bg-1);
+}
+.evo-step.hot .es-node { background: var(--cyan); box-shadow: 0 0 22px rgba(56, 200, 232, 0.55); }
+.evo-step .es-name { font-size: 21px; font-weight: 700; color: var(--text-hi); white-space: nowrap; }
+.evo-step .es-sub { font-size: 14px; color: var(--text-dim); white-space: nowrap; }
+
+/* ─── Scene 6 phone mockup ───────────────────────────────── */
+.phone {
+  position: absolute;
+  width: 340px;
+  height: 690px;
+  border-radius: 44px;
+  border: 2px solid rgba(139, 161, 179, 0.35);
+  background: linear-gradient(180deg, #0c2033, #081826);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  padding: 54px 24px 24px;
+  overflow: hidden;
+}
+.phone::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 22px;
+  border-radius: 12px;
+  background: #04101c;
+}
+.phone .ph-block {
+  border-radius: 12px;
+  border: 1px solid rgba(56, 200, 232, 0.18);
+  background: rgba(13, 34, 53, 0.85);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  will-change: transform, opacity;
+}
+.phone .ph-k { font-size: 12px; letter-spacing: 0.1em; color: var(--cyan-soft); text-transform: uppercase; }
+.phone .ph-t { font-size: 15px; color: var(--text-mid); margin-top: 6px; line-height: 1.45; }
+.phone .ph-line { height: 9px; border-radius: 5px; background: rgba(139, 161, 179, 0.22); margin-top: 8px; }
+
+/* ─── 범용 다이어그램 SVG ────────────────────────────────── */
+.diagram-svg { position: absolute; inset: 0; z-index: 15; overflow: visible; }
+.diagram-svg .d-line { fill: none; stroke: var(--cyan); stroke-width: 2; opacity: 0.8; }
+.diagram-svg .d-line.dim { stroke: rgba(56, 200, 232, 0.35); }
+.diagram-svg .d-line.red { stroke: var(--danger); }
+.diagram-svg .d-node { fill: var(--bg-panel-solid); stroke: var(--line-dim); stroke-width: 1.5; }
+.diagram-svg .d-node.hot { stroke: var(--cyan); }
+.diagram-svg .d-txt { fill: var(--text-hi); font-size: 19px; font-weight: 700; text-anchor: middle; }
+.diagram-svg .d-txt.sm { font-size: 14px; font-weight: 500; fill: var(--text-dim); }
