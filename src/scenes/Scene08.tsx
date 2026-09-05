@@ -57,9 +57,9 @@ export function Scene08({ active, meta }: SceneProps) {
         >
           <div className="kc-title" style={{ fontSize: 22 }}>
             {m.name}
-            {m.gpu && <span style={{ marginLeft: 10, fontSize: 13, color: 'var(--cyan-soft)', letterSpacing: '0.08em' }}>GPU</span>}
+            {m.gpu && <span style={{ marginLeft: 10, fontSize: 15, color: 'var(--cyan-soft)', letterSpacing: '0.08em' }}>GPU</span>}
           </div>
-          <div className="kc-sub" style={{ fontSize: 15 }}>{m.sw}</div>
+          <div className="kc-sub" style={{ fontSize: 17 }}>{m.sw}</div>
         </div>
       ))}
     </div>

@@ -1,0 +1,73 @@
+/* ─── 로컬 웹폰트 ─────────────────────────────────────────────
+   본문: NanumSquareNeo / 헤드라인·숫자: Paperlogy
+   행사장 오프라인 가정 — 전부 로컬 번들 (외부 CDN 금지). */
+
+/* NanumSquareNeo */
+@font-face {
+  font-family: 'NanumSquareNeo';
+  src: url('../assets/fonts/NanumSquareNeoOTF-Lt.otf') format('opentype');
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NanumSquareNeo';
+  src: url('../assets/fonts/NanumSquareNeoOTF-Rg.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NanumSquareNeo';
+  src: url('../assets/fonts/NanumSquareNeoOTF-Bd.otf') format('opentype');
+  font-weight: 500 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NanumSquareNeo';
+  src: url('../assets/fonts/NanumSquareNeoOTF-Eb.otf') format('opentype');
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NanumSquareNeo';
+  src: url('../assets/fonts/NanumSquareNeoOTF-Hv.otf') format('opentype');
+  font-weight: 900;
+  font-display: swap;
+}
+
+/* Paperlogy */
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../assets/fonts/Paperlogy-4Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../assets/fonts/Paperlogy-5Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../assets/fonts/Paperlogy-6SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../assets/fonts/Paperlogy-7Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../assets/fonts/Paperlogy-8ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('../assets/fonts/Paperlogy-9Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+}

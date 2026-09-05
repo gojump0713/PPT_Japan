@@ -49,7 +49,7 @@ export function Scene15({ active, meta }: SceneProps) {
             }}
           >
             <div className="scan-line" style={{ position: 'absolute', left: 0, right: 0, top: 0, height: 3, background: 'var(--cyan)', boxShadow: '0 0 14px var(--cyan)' }} />
-            <div style={{ position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', color: 'var(--text-dim)', fontSize: 15 }}>
+            <div style={{ position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', color: 'var(--text-dim)', fontSize: 16, letterSpacing: '0.08em' }}>
               BADGE SCAN
             </div>
           </div>

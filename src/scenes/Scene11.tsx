@@ -38,7 +38,7 @@ export function Scene11({ active, meta }: SceneProps) {
           <div className="kcard ind-panel" key={ind.name} style={{ flex: 1, minHeight: 240 }}>
             <div className="kc-title" style={{ fontSize: 30, color: 'var(--cyan-soft)' }}>{ind.name}</div>
             <div className="kc-sub" style={{ fontSize: 18, marginTop: 16 }}>{ind.need}</div>
-            <div className="kc-sub" style={{ fontSize: 16 }}>{ind.who}</div>
+            <div className="kc-sub" style={{ fontSize: 17 }}>{ind.who}</div>
           </div>
         ))}
       </div>

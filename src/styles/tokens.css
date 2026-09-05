@@ -32,18 +32,19 @@
   --ok: #4ade80;
   --gold: #d9b46a;
 
-  /* Typography */
-  --font-sans: 'Pretendard Variable', Pretendard, 'Noto Sans KR', 'Noto Sans JP',
+  /* Typography — 본문: NanumSquareNeo / 헤드라인·숫자: Paperlogy (로컬 번들) */
+  --font-sans: 'NanumSquareNeo', 'Paperlogy', 'Noto Sans KR', 'Noto Sans JP',
     -apple-system, 'Segoe UI', 'Malgun Gothic', 'Yu Gothic', sans-serif;
-  --font-num: 'Pretendard Variable', Pretendard, 'Segoe UI', sans-serif;
+  --font-display: 'Paperlogy', 'NanumSquareNeo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  --font-num: 'Paperlogy', 'NanumSquareNeo', 'Segoe UI', sans-serif;
 
   --fs-headline: 64px;   /* 56~80 */
   --fs-headline-lg: 76px;
   --fs-data: 128px;      /* 96~160 */
   --fs-data-sm: 96px;
-  --fs-sub: 27px;        /* 24~32 */
-  --fs-label: 18px;
-  --fs-source: 13px;     /* 12~14 */
+  --fs-sub: 28px;        /* 24~32 */
+  --fs-label: 20px;
+  --fs-source: 15px;     /* 최소 가독 크기 하한 */
 
   /* Motion */
   --ease-main: cubic-bezier(0.22, 1, 0.36, 1);

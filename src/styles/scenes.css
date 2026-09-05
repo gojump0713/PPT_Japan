@@ -19,6 +19,7 @@
   will-change: transform, opacity;
 }
 .kcard .kc-title {
+  font-family: var(--font-display);
   font-size: 26px;
   font-weight: 700;
   color: var(--text-hi);
@@ -26,7 +27,7 @@
 }
 .kcard .kc-sub {
   margin-top: 8px;
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.45;
   color: var(--text-dim);
 }
@@ -54,7 +55,7 @@
   text-align: center;
   will-change: transform, opacity;
 }
-.knode .kn-sub { font-size: 13px; font-weight: 500; color: var(--text-dim); }
+.knode .kn-sub { font-size: 15px; font-weight: 500; color: var(--text-dim); }
 .knode.glow {
   border-color: var(--cyan);
   box-shadow: 0 0 30px rgba(56, 200, 232, 0.35);
@@ -77,7 +78,7 @@
   letter-spacing: 0.02em;
 }
 .era-timeline .et-year.hot { color: var(--cyan-soft); }
-.era-timeline .et-label { font-size: 15px; color: var(--text-faint); margin-top: 6px; }
+.era-timeline .et-label { font-size: 17px; color: var(--text-dim); margin-top: 6px; }
 
 /* ─── Scene 4 계단 bar ───────────────────────────────────── */
 .stair-chart { position: absolute; right: 176px; bottom: 190px; display: flex; align-items: flex-end; gap: 34px; }
@@ -90,7 +91,7 @@
   will-change: transform;
 }
 .stair-chart .sc-pct { font-family: var(--font-num); font-size: 26px; font-weight: 700; color: var(--text-hi); }
-.stair-chart .sc-year { font-size: 15px; color: var(--text-dim); }
+.stair-chart .sc-year { font-size: 17px; color: var(--text-dim); }
 
 /* ─── Scene 7 PC grid ────────────────────────────────────── */
 .pc-grid {
@@ -109,7 +110,7 @@
   background: var(--bg-2);
   display: grid;
   place-items: center;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-faint);
   will-change: transform, opacity;
 }
@@ -130,7 +131,7 @@
   background: var(--bg-2);
   display: grid;
   place-items: center;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   color: var(--text-faint);
   transition: border-color 0.4s var(--ease-main), box-shadow 0.4s var(--ease-main), color 0.4s var(--ease-main);
@@ -151,9 +152,9 @@
   padding: 0 30px;
   will-change: transform, opacity;
 }
-.stack4 .layer .l-idx { font-family: var(--font-num); font-size: 15px; color: var(--text-faint); letter-spacing: 0.14em; }
-.stack4 .layer .l-name { font-size: 24px; font-weight: 700; color: var(--text-hi); }
-.stack4 .layer .l-sub { font-size: 15px; color: var(--text-dim); margin-left: auto; text-align: right; }
+.stack4 .layer .l-idx { font-family: var(--font-num); font-size: 16px; color: var(--text-faint); letter-spacing: 0.14em; }
+.stack4 .layer .l-name { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--text-hi); }
+.stack4 .layer .l-sub { font-size: 17px; color: var(--text-dim); margin-left: auto; text-align: right; }
 .stack4 .layer.top { border-color: var(--cyan); box-shadow: 0 0 30px rgba(56, 200, 232, 0.2); }
 
 /* 통제 포인트 chip */
@@ -165,7 +166,7 @@
   border-radius: 999px;
   border: 1px solid var(--line-dim);
   background: var(--bg-panel-solid);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--text-mid);
   will-change: transform, opacity;
@@ -183,8 +184,8 @@
   background: var(--bg-1);
 }
 .evo-step.hot .es-node { background: var(--cyan); box-shadow: 0 0 22px rgba(56, 200, 232, 0.55); }
-.evo-step .es-name { font-size: 21px; font-weight: 700; color: var(--text-hi); white-space: nowrap; }
-.evo-step .es-sub { font-size: 14px; color: var(--text-dim); white-space: nowrap; }
+.evo-step .es-name { font-family: var(--font-display); font-size: 21px; font-weight: 700; color: var(--text-hi); white-space: nowrap; }
+.evo-step .es-sub { font-size: 16px; color: var(--text-dim); white-space: nowrap; }
 
 /* ─── Scene 6 phone mockup ───────────────────────────────── */
 .phone {
@@ -217,8 +218,8 @@
   margin-bottom: 14px;
   will-change: transform, opacity;
 }
-.phone .ph-k { font-size: 12px; letter-spacing: 0.1em; color: var(--cyan-soft); text-transform: uppercase; }
-.phone .ph-t { font-size: 15px; color: var(--text-mid); margin-top: 6px; line-height: 1.45; }
+.phone .ph-k { font-size: 14px; letter-spacing: 0.1em; color: var(--cyan-soft); text-transform: uppercase; }
+.phone .ph-t { font-size: 17px; color: var(--text-mid); margin-top: 6px; line-height: 1.45; }
 .phone .ph-line { height: 9px; border-radius: 5px; background: rgba(139, 161, 179, 0.22); margin-top: 8px; }
 
 /* ─── 범용 다이어그램 SVG ────────────────────────────────── */
@@ -228,5 +229,5 @@
 .diagram-svg .d-line.red { stroke: var(--danger); }
 .diagram-svg .d-node { fill: var(--bg-panel-solid); stroke: var(--line-dim); stroke-width: 1.5; }
 .diagram-svg .d-node.hot { stroke: var(--cyan); }
-.diagram-svg .d-txt { fill: var(--text-hi); font-size: 19px; font-weight: 700; text-anchor: middle; }
-.diagram-svg .d-txt.sm { font-size: 14px; font-weight: 500; fill: var(--text-dim); }
+.diagram-svg .d-txt { fill: var(--text-hi); font-size: 20px; font-weight: 700; text-anchor: middle; }
+.diagram-svg .d-txt.sm { font-size: 16px; font-weight: 500; fill: var(--text-dim); }
