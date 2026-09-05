@@ -55,9 +55,12 @@ export function Scene16({ active, meta }: SceneProps) {
         </div>
       </div>
 
-      <div className="history-line" style={{ position: 'absolute', left: 176, bottom: 170, display: 'flex', gap: 26, alignItems: 'baseline' }}>
+      <div
+        className="history-line panel"
+        style={{ position: 'absolute', left: 176, bottom: 130, display: 'flex', flexDirection: 'column', gap: 10, padding: '22px 30px', maxWidth: 1100 }}
+      >
         <span style={{ fontFamily: 'var(--font-num)', fontSize: 44, fontWeight: 800, color: 'var(--text-hi)' }}>2001 → 2026</span>
-        <span className="kc-sub" style={{ fontSize: 18 }}>
+        <span className="kc-sub" style={{ fontSize: 21, marginTop: 0 }}>
           이름은 바뀌어도 질문은 하나 — “사람이 가장 안전하고 자유롭게 일할 수 있는 환경.” 이제 그 질문에 AI가 더해집니다.
         </span>
       </div>

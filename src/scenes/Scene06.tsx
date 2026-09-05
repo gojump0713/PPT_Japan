@@ -55,7 +55,7 @@ export function Scene06({ active, meta }: SceneProps) {
       {/* 보안 배지 3종 */}
       <div style={{ position: 'absolute', left: 176, top: 460, display: 'flex', flexDirection: 'column', gap: 18 }}>
         {SEC_BADGES.map((b) => (
-          <div className="ctrl-chip sec-badge" key={b} style={{ width: 'fit-content', fontSize: 19, padding: '14px 24px' }}>
+          <div className="ctrl-chip sec-badge" key={b} style={{ width: 'fit-content', fontSize: 21, padding: '14px 26px' }}>
             <span className="dot" />
             {b}
           </div>

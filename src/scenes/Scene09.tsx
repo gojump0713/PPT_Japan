@@ -67,7 +67,7 @@ export function Scene09({ active, meta }: SceneProps) {
                 background: 'var(--bg-panel)',
                 display: 'grid',
                 placeItems: 'center',
-                fontSize: 17,
+                fontSize: 19,
                 fontWeight: 600,
                 color: 'var(--text-mid)',
               }}
@@ -76,7 +76,7 @@ export function Scene09({ active, meta }: SceneProps) {
             </div>
           ))}
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8, fontSize: 15, color: 'var(--text-dim)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8, fontSize: 16, color: 'var(--text-dim)' }}>
           <span>00:00</span>
           <span>12:00</span>
           <span>24:00</span>

@@ -46,7 +46,12 @@ export function countUp(
       ease: 'power2.out',
       onUpdate() {
         const nodes = typeof el === 'string' ? gsap.utils.toArray<Element>(el) : [el]
-        const text = obj.v.toFixed(decimals) + suffix
+        // 천 단위 콤마 (11000 → 11,000)
+        const text =
+          obj.v.toLocaleString('en-US', {
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals,
+          }) + suffix
         nodes.forEach((n) => ((n as HTMLElement).textContent = text))
       },
     },

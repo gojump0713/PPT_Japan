@@ -67,7 +67,7 @@ export function Scene12({ active, meta }: SceneProps) {
       >
         {RISKS.map((r) => (
           <div className="kcard danger risk-card" key={r} style={{ padding: '18px 20px' }}>
-            <div className="kc-title" style={{ fontSize: 19 }}>{r}</div>
+            <div className="kc-title" style={{ fontSize: 22 }}>{r}</div>
           </div>
         ))}
       </div>

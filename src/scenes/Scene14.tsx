@@ -45,7 +45,7 @@ export function Scene14({ active, meta }: SceneProps) {
             <div className="kc-sub">{s.sub}</div>
           </div>
         ))}
-        <div className="kc-sub agent-q" style={{ fontSize: 18, marginTop: 10 }}>
+        <div className="kc-sub agent-q" style={{ fontSize: 21, marginTop: 10 }}>
           새로운 질문 — “Agent에게 우리 PC와 시스템을 <em style={{ color: 'var(--cyan-soft)', fontStyle: 'normal' }}>어디까지</em> 열어줄 것인가?”
         </div>
       </div>
@@ -59,7 +59,7 @@ export function Scene14({ active, meta }: SceneProps) {
           return (
             <g className="loop-node" key={n} style={{ transformOrigin: `${x}px ${y}px` }}>
               <circle cx={x} cy={y} r="52" fill="var(--bg-panel-solid)" stroke="var(--line-dim)" strokeWidth="1.5" />
-              <text className="d-txt" x={x} y={y + 6} style={{ fontSize: 18 }}>{n}</text>
+              <text className="d-txt" x={x} y={y + 7} style={{ fontSize: 20 }}>{n}</text>
             </g>
           )
         })}

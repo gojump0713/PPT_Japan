@@ -70,7 +70,7 @@ export function Scene15({ active, meta }: SceneProps) {
         </div>
       </div>
 
-      <div className="kc-sub" style={{ position: 'absolute', left: 176, bottom: 160, fontSize: 19 }}>
+      <div className="kc-sub" style={{ position: 'absolute', left: 176, bottom: 160, fontSize: 22 }}>
         Human Workspace → AI Workspace → <span style={{ color: 'var(--cyan-soft)', fontWeight: 700 }}>Human + AI Agent Workspace</span>
       </div>
     </div>

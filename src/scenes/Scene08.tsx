@@ -55,11 +55,11 @@ export function Scene08({ active, meta }: SceneProps) {
           className={`kcard major-card${m.gpu ? ' glow' : ''}`}
           style={{ position: 'absolute', left: m.x, top: m.y, width: 300, padding: '20px 24px', zIndex: 16 }}
         >
-          <div className="kc-title" style={{ fontSize: 22 }}>
+          <div className="kc-title" style={{ fontSize: 24 }}>
             {m.name}
             {m.gpu && <span style={{ marginLeft: 10, fontSize: 15, color: 'var(--cyan-soft)', letterSpacing: '0.08em' }}>GPU</span>}
           </div>
-          <div className="kc-sub" style={{ fontSize: 17 }}>{m.sw}</div>
+          <div className="kc-sub" style={{ fontSize: 19 }}>{m.sw}</div>
         </div>
       ))}
     </div>

@@ -79,7 +79,7 @@ export function Scene05({ active, meta }: SceneProps) {
       </svg>
 
       {/* 2026 차세대 사업 Data Badges */}
-      <div style={{ position: 'absolute', left: 760, bottom: 150, display: 'flex', gap: 90, alignItems: 'flex-end' }}>
+      <div style={{ position: 'absolute', right: 176, bottom: 150, display: 'flex', gap: 80, alignItems: 'flex-end' }}>
         <div className="bd-budget">
           <DataBadge small value="0" unit="억원" label="2026 차세대 우본 DaaS 사업 규모 (약)" />
         </div>

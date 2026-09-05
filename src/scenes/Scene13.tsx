@@ -60,7 +60,7 @@ export function Scene13({ active, meta }: SceneProps) {
           alignContent: 'flex-start',
         }}
       >
-        <div className="kc-sub ws-label" style={{ width: '100%', fontSize: 17, marginBottom: 4 }}>
+        <div className="kc-sub ws-label" style={{ width: '100%', fontSize: 20, marginBottom: 4 }}>
           조직이 쥐는 6개의 통제 포인트
         </div>
         {CONTROLS.map((c) => (

@@ -36,9 +36,9 @@ export function Scene11({ active, meta }: SceneProps) {
       <div style={{ position: 'absolute', left: 176, right: 176, top: 400, display: 'flex', gap: 28 }}>
         {INDUSTRIES.map((ind) => (
           <div className="kcard ind-panel" key={ind.name} style={{ flex: 1, minHeight: 240 }}>
-            <div className="kc-title" style={{ fontSize: 30, color: 'var(--cyan-soft)' }}>{ind.name}</div>
-            <div className="kc-sub" style={{ fontSize: 18, marginTop: 16 }}>{ind.need}</div>
-            <div className="kc-sub" style={{ fontSize: 17 }}>{ind.who}</div>
+            <div className="kc-title" style={{ fontSize: 34, color: 'var(--cyan-soft)' }}>{ind.name}</div>
+            <div className="kc-sub" style={{ fontSize: 23, marginTop: 18 }}>{ind.need}</div>
+            <div className="kc-sub" style={{ fontSize: 21 }}>{ind.who}</div>
           </div>
         ))}
       </div>

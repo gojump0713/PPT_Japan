@@ -13,6 +13,9 @@ html, body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   user-select: none;
+  /* 한글은 단어 중간에서 줄바꿈하지 않는다 ("필요합\n니다" 방지) */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 #root { height: 100%; }
 
@@ -48,13 +51,13 @@ html, body {
   position: absolute;
   left: var(--copy-left);
   z-index: 20;
-  max-width: 1080px;
+  max-width: 1480px; /* 한 문장이 어색하게 꺾이지 않을 폭 */
 }
 .gcopy.center {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  max-width: 1500px;
+  max-width: 1560px;
 }
 .gcopy .g-line {
   display: block;
@@ -73,11 +76,13 @@ html, body {
 .gcopy .g-sub {
   display: block;
   margin-top: 22px;
+  max-width: 1080px; /* 보조문장은 우측 도식과 겹치지 않게 좁게 유지 */
   font-size: var(--fs-sub);
   font-weight: 400;
   line-height: 1.5;
   color: var(--text-mid);
 }
+.gcopy.center .g-sub { max-width: none; }
 .g-reveal { display: inline-block; will-change: transform, opacity; }
 
 /* ─── Data badge ─────────────────────────────────────────── */

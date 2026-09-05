@@ -37,7 +37,7 @@ export function Scene17({ active, meta }: SceneProps) {
           {STEPS.map((s, i) => (
             <div className={`evo-step${i === STEPS.length - 1 ? ' hot' : ''}`} key={s}>
               <div className="es-node" />
-              <div className="es-name" style={{ fontSize: 19, ...(i === STEPS.length - 1 ? { color: 'var(--cyan-soft)' } : {}) }}>{s}</div>
+              <div className="es-name" style={{ fontSize: 21, ...(i === STEPS.length - 1 ? { color: 'var(--cyan-soft)' } : {}) }}>{s}</div>
             </div>
           ))}
         </div>
@@ -59,7 +59,7 @@ export function Scene17({ active, meta }: SceneProps) {
         }}
       >
         Work without borders. <span style={{ color: 'var(--cyan-soft)' }}>AI with governance.</span>
-        <div style={{ marginTop: 18, fontSize: 20, fontWeight: 400, color: 'var(--text-mid)' }}>
+        <div style={{ marginTop: 18, fontSize: 23, fontWeight: 400, color: 'var(--text-mid)' }}>
           ご清聴ありがとうございました — 감사합니다
         </div>
       </div>
