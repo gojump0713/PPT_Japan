@@ -61,15 +61,23 @@ export function Scene02({ active, meta }: SceneProps) {
 
       <div
         className="vdi-toggle"
-        style={{ position: 'absolute', right: 176, top: 190, display: 'flex', flexDirection: 'column', gap: 16, width: 380 }}
+        style={{ position: 'absolute', right: 176, top: 190, display: 'flex', flexDirection: 'column', gap: 16, width: 430 }}
       >
         <div className="kcard">
           <div className="kc-title">VDI</div>
-          <div className="kc-sub">조직이 직접 구축하는 가상 데스크톱 인프라</div>
+          <div className="kc-sub">
+            조직이 직접 구축하는
+            <br />
+            가상 데스크톱 인프라
+          </div>
         </div>
         <div className="kcard glow">
           <div className="kc-title">DaaS</div>
-          <div className="kc-sub">같은 경험을 클라우드 서비스로 — Desktop as a Service</div>
+          <div className="kc-sub">
+            같은 경험을 클라우드 서비스로
+            <br />
+            Desktop as a Service
+          </div>
         </div>
       </div>
     </div>

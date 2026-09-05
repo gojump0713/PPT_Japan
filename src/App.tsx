@@ -1,19 +1,71 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { StageScaler } from './components/StageScaler'
 import { ProgressBar } from './components/ProgressBar'
 import { PresenterHUD } from './components/PresenterHUD'
 import { PresenterMenu } from './components/PresenterMenu'
 import { SceneShell } from './components/SceneShell'
-import { SCENES } from './content/scenes'
+import { SceneOverview } from './components/SceneOverview'
+import { SCENES, TOTAL_SCENES } from './content/scenes'
 import { SCENE_COMPONENTS } from './scenes'
 import { usePresentation } from './lib/usePresentation'
 
 export default function App() {
   const { scene, next, prev, goTo, togglePresenter, restartVideo } = usePresentation()
+  const [overview, setOverview] = useState(false)
+  const [sel, setSel] = useState(1)
+
+  const pick = useCallback(
+    (n: number) => {
+      goTo(n)
+      setOverview(false)
+    },
+    [goTo],
+  )
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      // Esc: fullscreen 해제만 브라우저 기본동작에 맡김
+      // ── 목차 오버레이 열림: 선택/이동/닫기 전용 조작 ──
+      if (overview) {
+        if (/^[1-9]$/.test(e.key) && !e.shiftKey) {
+          pick(parseInt(e.key, 10))
+          return
+        }
+        if (e.shiftKey && /^Digit[1-8]$/.test(e.code)) {
+          pick(9 + parseInt(e.code.slice(5), 10))
+          return
+        }
+        switch (e.key) {
+          case 'Escape':
+          case 'o':
+          case 'O':
+            setOverview(false)
+            break
+          case 'ArrowRight':
+            e.preventDefault()
+            setSel((s) => Math.min(TOTAL_SCENES, s + 1))
+            break
+          case 'ArrowLeft':
+            e.preventDefault()
+            setSel((s) => Math.max(1, s - 1))
+            break
+          case 'ArrowDown':
+            e.preventDefault()
+            setSel((s) => Math.min(TOTAL_SCENES, s + 6))
+            break
+          case 'ArrowUp':
+            e.preventDefault()
+            setSel((s) => Math.max(1, s - 6))
+            break
+          case 'Enter':
+          case ' ':
+            e.preventDefault()
+            pick(sel)
+            break
+        }
+        return
+      }
+
+      // ── 일반 발표 조작 ──
       switch (e.key) {
         case ' ':
         case 'ArrowRight':
@@ -25,6 +77,11 @@ export default function App() {
         case 'PageUp':
           e.preventDefault()
           prev()
+          break
+        case 'o':
+        case 'O':
+          setSel(scene)
+          setOverview(true)
           break
         case 'p':
         case 'P':
@@ -53,7 +110,7 @@ export default function App() {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [next, prev, goTo, togglePresenter, restartVideo])
+  }, [next, prev, goTo, togglePresenter, restartVideo, overview, sel, scene, pick])
 
   return (
     <StageScaler>
@@ -72,6 +129,7 @@ export default function App() {
       <ProgressBar />
       <PresenterHUD />
       <PresenterMenu />
+      {overview && <SceneOverview sel={sel} onPick={pick} />}
     </StageScaler>
   )
 }

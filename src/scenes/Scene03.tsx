@@ -1,27 +1,53 @@
+import { Fragment } from 'react'
 import { GoverningCopy } from '../components/GoverningCopy'
 import { MediaFrame } from '../components/MediaFrame'
-import { useSceneTimeline, traceLine } from '../lib/useSceneTimeline'
+import { useSceneTimeline } from '../lib/useSceneTimeline'
 import { revealCopy, type SceneProps } from './types'
 
 const STEPS = [
-  { name: '전자정부', sub: '전산화 — 종이를 시스템으로', y: 250 },
-  { name: '디지털정부', sub: '인터넷 · 모바일 행정서비스', y: 170 },
-  { name: 'AI정부', sub: 'AI · Agent와 함께 일하는 정부', y: 90 },
+  {
+    era: '전산화',
+    name: '전자정부',
+    sub: '종이 문서를 시스템으로',
+    detail: '행정 전산화의 출발',
+    h: 300,
+  },
+  {
+    era: '인터넷 · 모바일',
+    name: '디지털정부',
+    sub: '언제 어디서나 행정서비스',
+    detail: '서비스는 디지털이 되었지만, 공무원은 여전히 특정 PC 앞에',
+    h: 400,
+  },
+  {
+    era: 'AI · Agent',
+    name: 'AI정부',
+    sub: '행정 서비스 × 업무환경의 통합',
+    detail: '온북 · DaaS로 업무환경 자체를 전환',
+    h: 500,
+    hot: true,
+  },
 ]
 
-/** Scene 3 — 전자→디지털→AI정부 3단 staircase + 서비스/업무환경 평행 레일 */
+/** Scene 3 — 전자→디지털→AI정부: 좌→우 상승하는 3단 계단 패널 */
 export function Scene03({ active, meta }: SceneProps) {
   const root = useSceneTimeline(active, (tl) => {
     revealCopy(tl)
-    // 3단계 카드 좌→우 450ms stagger (설계서)
-    tl.from('.stair-card', { x: -40, opacity: 0, stagger: 0.45, duration: 0.6 }, 0.6)
-    traceLine(tl, '.rail-line', { duration: 1.1, stagger: 0.2, at: 1.6 })
-    tl.from('.rail-label', { opacity: 0, y: 12, stagger: 0.15 }, 2.0)
+    // 계단 패널이 좌→우 450ms 간격으로 아래에서 솟아오름
+    tl.from('.gov-step', { y: 80, opacity: 0, stagger: 0.45, duration: 0.65, ease: 'power3.out' }, 0.6)
+    tl.from('.gov-arrow', { opacity: 0, x: -14, stagger: 0.45, duration: 0.4 }, 1.1)
+    // AI정부 패널 glow pulse
+    tl.fromTo(
+      '.gov-step.hot',
+      { boxShadow: '0 0 0 rgba(56,200,232,0)' },
+      { boxShadow: '0 0 46px rgba(56,200,232,0.35)', duration: 0.6 },
+      2.2,
+    )
   })
 
   return (
     <div ref={root} style={{ position: 'absolute', inset: 0 }}>
-      <MediaFrame video={meta.video} poster={meta.hero} active={active} dim={0.5} />
+      <MediaFrame video={meta.video} poster={meta.hero} active={active} dim={0.55} />
       <span className="chip-label chapter-chip">Chapter 2 — 공공</span>
       <GoverningCopy
         top={150}
@@ -33,28 +59,64 @@ export function Scene03({ active, meta }: SceneProps) {
         ]}
       />
 
-      {/* 3단 staircase */}
-      <div style={{ position: 'absolute', left: 176, bottom: 330, display: 'flex', gap: 40, alignItems: 'flex-end' }}>
+      <div
+        style={{
+          position: 'absolute',
+          left: 176,
+          right: 176,
+          bottom: 140,
+          display: 'flex',
+          alignItems: 'flex-end',
+          gap: 26,
+        }}
+      >
         {STEPS.map((s, i) => (
-          <div
-            key={s.name}
-            className={`kcard stair-card${i === 2 ? ' glow' : ''}`}
-            style={{ width: 400, position: 'relative', bottom: i * 80 }}
-          >
-            <div className="kc-title">{s.name}</div>
-            <div className="kc-sub">{s.sub}</div>
-          </div>
+          <Fragment key={s.name}>
+            {i > 0 && (
+              <div
+                className="gov-arrow"
+                style={{
+                  alignSelf: 'flex-end',
+                  marginBottom: STEPS[i - 1].h / 2,
+                  fontSize: 46,
+                  fontWeight: 700,
+                  color: 'var(--cyan)',
+                  lineHeight: 1,
+                }}
+              >
+                →
+              </div>
+            )}
+            <div
+              className={`kcard gov-step${s.hot ? ' hot glow' : ''}`}
+              style={{
+                flex: 1,
+                height: s.h,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 14,
+                padding: '30px 34px',
+              }}
+            >
+              <span className="chip-label" style={{ alignSelf: 'flex-start', fontSize: 16 }}>
+                {s.era}
+              </span>
+              <div
+                className="kc-title"
+                style={{ fontSize: 40, ...(s.hot ? { color: 'var(--cyan-soft)' } : {}) }}
+              >
+                {s.name}
+              </div>
+              <div className="kc-sub" style={{ fontSize: 22, marginTop: 0, color: 'var(--text-hi)' }}>
+                {s.sub}
+              </div>
+              <div className="kc-sub" style={{ fontSize: 19, marginTop: 'auto' }}>
+                {s.detail}
+              </div>
+            </div>
+          </Fragment>
         ))}
       </div>
-
-      {/* 평행 레일: 서비스 / 업무환경 → AI정부에서 합류 */}
-      <svg className="diagram-svg" viewBox="0 0 1920 1080">
-        <path className="rail-line d-line dim" d="M 176 950 L 1180 950 C 1330 950 1380 800 1500 780" />
-        <path className="rail-line d-line" d="M 176 1010 L 1180 1010 C 1360 1010 1400 820 1500 790" />
-        <text className="rail-label d-txt sm" x="250" y="938" style={{ textAnchor: 'start' }}>행정 서비스의 디지털화</text>
-        <text className="rail-label d-txt sm" x="250" y="998" style={{ textAnchor: 'start' }}>업무환경의 전환 — 온북 · DaaS</text>
-        <text className="rail-label d-txt" x="1560" y="790" style={{ textAnchor: 'start', fill: 'var(--cyan-soft)' }}>AI정부</text>
-      </svg>
     </div>
   )
 }

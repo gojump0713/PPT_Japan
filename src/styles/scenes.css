@@ -72,13 +72,13 @@
 }
 .era-timeline .et-year {
   font-family: var(--font-num);
-  font-size: 34px;
+  font-size: 40px;
   font-weight: 800;
-  color: var(--text-mid);
+  color: var(--text-hi);
   letter-spacing: 0.02em;
 }
 .era-timeline .et-year.hot { color: var(--cyan-soft); }
-.era-timeline .et-label { font-size: 19px; color: var(--text-mid); margin-top: 6px; }
+.era-timeline .et-label { font-size: 24px; color: var(--text-mid); margin-top: 10px; }
 
 /* ─── Scene 4 계단 bar ───────────────────────────────────── */
 .stair-chart { position: absolute; right: 176px; bottom: 190px; display: flex; align-items: flex-end; gap: 34px; }

@@ -228,6 +228,49 @@ html, body {
 .pmenu button:hover { border-color: var(--cyan); color: var(--text-hi); }
 .pmenu button.cur { background: var(--cyan); color: #04222c; font-weight: 700; }
 
+/* ─── Scene overview (목차, 'O' 키) ──────────────────────── */
+.overview {
+  position: absolute;
+  inset: 0;
+  z-index: 120;
+  background: rgba(4, 11, 19, 0.94);
+  backdrop-filter: blur(10px);
+  padding: 80px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+.ov-head { display: flex; align-items: center; gap: 30px; }
+.ov-hint { color: var(--text-dim); font-size: 18px; }
+.ov-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  align-content: start;
+}
+.ov-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 22px 24px;
+  min-height: 170px;
+  border-radius: 14px;
+  border: 1px solid rgba(139, 161, 179, 0.25);
+  background: var(--bg-panel);
+  color: var(--text-mid);
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+.ov-item:hover { border-color: var(--cyan); }
+.ov-item .ov-num { font-family: var(--font-num); font-size: 28px; font-weight: 800; color: var(--text-hi); }
+.ov-item .ov-ch { font-size: 14px; letter-spacing: 0.08em; color: var(--cyan-soft); font-weight: 600; }
+.ov-item .ov-title { font-size: 18px; font-weight: 600; line-height: 1.4; }
+.ov-item.cur { border-color: var(--teal-soft); background: rgba(46, 168, 160, 0.14); }
+.ov-item.sel { border-color: var(--cyan); box-shadow: 0 0 26px rgba(56, 200, 232, 0.35); }
+.ov-item.cur .ov-title, .ov-item.sel .ov-title { color: var(--text-hi); }
+
 /* ─── Media frame ────────────────────────────────────────── */
 .mframe { position: absolute; inset: 0; overflow: hidden; }
 .mframe video, .mframe img {
