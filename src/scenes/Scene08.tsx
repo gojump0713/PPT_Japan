@@ -27,9 +27,10 @@ export function Scene08({ active, meta }: SceneProps) {
         top={150}
         lines={[
           <>
-            <em>PC 성능</em>이 학생의
+            <em>PC 성능</em>이
           </>,
-          <>학습 기회를 결정하지 않는 캠퍼스.</>,
+          <>학습 기회를</>,
+          <>결정하지 않도록.</>,
         ]}
         sub="하나의 VDI에서 전공별 SW와 자원을 — 모든 학과에 고성능 PC는 필요 없습니다."
       />

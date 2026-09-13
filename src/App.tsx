@@ -5,6 +5,7 @@ import { PresenterHUD } from './components/PresenterHUD'
 import { PresenterMenu } from './components/PresenterMenu'
 import { SceneShell } from './components/SceneShell'
 import { SceneOverview } from './components/SceneOverview'
+import { ChapterTransition } from './components/ChapterTransition'
 import { SCENES, TOTAL_SCENES } from './content/scenes'
 import { SCENE_COMPONENTS } from './scenes'
 import { usePresentation } from './lib/usePresentation'
@@ -59,7 +60,8 @@ export default function App() {
           case 'Enter':
           case ' ':
             e.preventDefault()
-            pick(sel)
+            if (document.activeElement instanceof HTMLButtonElement && document.activeElement.closest('.overview')) document.activeElement.click()
+            else pick(sel)
             break
         }
         return
@@ -126,10 +128,11 @@ export default function App() {
           </SceneShell>
         )
       })}
-      <ProgressBar />
+      <ChapterTransition />
+      <ProgressBar onOverview={() => { setSel(scene); setOverview(true) }} />
       <PresenterHUD />
       <PresenterMenu />
-      {overview && <SceneOverview sel={sel} onPick={pick} />}
+      {overview && <SceneOverview sel={sel} onPick={pick} onClose={() => setOverview(false)} />}
     </StageScaler>
   )
 }

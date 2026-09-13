@@ -21,9 +21,8 @@ export function GoverningCopy({
     <div className={`gcopy${center ? ' center' : ''}`} style={{ top, ...style }}>
       <span className="g-line">
         {lines.map((l, i) => (
-          <span className="g-reveal" key={i}>
+          <span className="g-reveal g-copy-line" key={i}>
             {l}
-            {i < lines.length - 1 ? ' ' : ''}
           </span>
         ))}
       </span>

@@ -19,9 +19,9 @@ export function Scene02({ active, meta }: SceneProps) {
       <GoverningCopy
         top={150}
         lines={[
-          <>사람이 업무환경으로 가는 시대에서,</>,
+          <>이제 업무환경이</>,
           <>
-            <em>업무환경이 사람을 따라오는</em> 시대로.
+            <em>사람을 따라옵니다.</em>
           </>,
         ]}
         sub="VDI — 업무환경을 PC에서 분리해 데이터센터로. DaaS — 그것을 서비스로."

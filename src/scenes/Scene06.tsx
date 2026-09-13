@@ -11,7 +11,6 @@ export function Scene06({ active, meta }: SceneProps) {
   const root = useSceneTimeline(active, (tl) => {
     revealCopy(tl)
     tl.from('.phone', { y: 60, opacity: 0, duration: 0.8 }, 0.6)
-    tl.from('.ph-block', { y: 24, opacity: 0, stagger: 0.28, duration: 0.5 }, 1.1)
     tl.from('.sec-badge', { scale: 0.7, opacity: 0, transformOrigin: 'left center', stagger: 0.18, duration: 0.45, ease: 'back.out(1.6)' }, 1.8)
     countUp(tl, '.bd-min .d-val', 40, { duration: 0.9, at: 2.4 })
   })
@@ -24,32 +23,24 @@ export function Scene06({ active, meta }: SceneProps) {
         top={150}
         lines={[
           <>
-            <em>Mobility + Security + AI</em>,
+            <em>이동성 · 보안 · AI</em>,
           </>,
           <>공공 업무환경의 다음 단계.</>,
         ]}
         sub="2026-04-30 온AI 모바일 서비스 개시 — 출장 중에도 스마트폰으로 안전한 업무."
       />
 
-      {/* 스마트폰 mockup: 보고서 → AI 요약 → 결재 */}
-      <div className="phone" style={{ right: 420, top: 240 }}>
-        <div className="ph-block">
-          <div className="ph-k">내부망 보고서</div>
-          <div className="ph-t">출장 중 스마트폰으로 열람</div>
-          <div className="ph-line" style={{ width: '86%' }} />
-          <div className="ph-line" style={{ width: '70%' }} />
+      {/* Illustrative VDI session: connect → virtual desktop → open a document. */}
+      <div className="phone phone-vdi" style={{ right: 420, top: 240 }} aria-label="휴대폰에서 VDI에 접속해 가상 PC와 업무 문서를 실행하는 데모 영상">
+        <div className="phone-vdi-screen">
+          <MediaFrame
+            video="assets/video/s06_vdi_phone_demo_v01.mp4"
+            poster="assets/images/s06_vdi_phone_poster_v01.png"
+            active={active}
+            overlay={false}
+          />
         </div>
-        <div className="ph-block" style={{ borderColor: 'var(--cyan)' }}>
-          <div className="ph-k">AI 회의록 요약</div>
-          <div className="ph-t">긴 회의 내용을 핵심만 자동 정리</div>
-          <div className="ph-line" style={{ width: '92%', background: 'rgba(56,200,232,0.35)' }} />
-          <div className="ph-line" style={{ width: '64%', background: 'rgba(56,200,232,0.35)' }} />
-        </div>
-        <div className="ph-block">
-          <div className="ph-k">전자 결재</div>
-          <div className="ph-t">확인 즉시 모바일 승인</div>
-          <div className="ph-line" style={{ width: '48%' }} />
-        </div>
+        <div className="phone-home-indicator" />
       </div>
 
       {/* 보안 배지 3종 */}

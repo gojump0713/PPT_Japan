@@ -7,14 +7,6 @@ import { revealCopy, type SceneProps } from './types'
 const RING_R = 165
 const RING_C = 2 * Math.PI * RING_R
 
-// 지도형 도식 — 전국 거점 노드 (장식용 상대 좌표)
-const MAP_NODES = [
-  [1210, 300], [1300, 360], [1390, 320], [1480, 390], [1560, 340],
-  [1250, 450], [1360, 470], [1470, 500], [1580, 460], [1300, 560],
-  [1420, 590], [1530, 570], [1260, 660], [1380, 690], [1500, 660],
-  [1330, 770], [1450, 780], [1560, 740], [1400, 860], [1510, 850],
-] as const
-
 /** Scene 5 — 우정사업본부: 2~3분→약30초 타이머 + 2026 차세대 DaaS 규모 */
 export function Scene05({ active, meta }: SceneProps) {
   const root = useSceneTimeline(active, (tl) => {
@@ -23,8 +15,7 @@ export function Scene05({ active, meta }: SceneProps) {
     tl.to('.timer-ring-fg', { strokeDashoffset: RING_C * (1 - 30 / 180), duration: 1.2, ease: 'power2.inOut' }, 0.8)
     tl.from('.timer-after', { opacity: 0, scale: 0.8, transformOrigin: 'center', duration: 0.5 }, 1.6)
     tl.to('.timer-before', { opacity: 0.3, duration: 0.5 }, 1.6)
-    // 지도 노드 100ms stagger 점등
-    tl.from('.map-node', { opacity: 0, scale: 0, transformOrigin: 'center', stagger: 0.1, duration: 0.3 }, 1.0)
+    tl.from('.business-metrics', { opacity: 0, y: 26, duration: 0.6 }, 1.0)
     countUp(tl, '.bd-budget .d-val', 126.7, { duration: 1.0, decimals: 1, at: 2.2 })
     countUp(tl, '.bd-users .d-val', 11000, { duration: 1.1, at: 2.4 })
     tl.from('.bd-until', { opacity: 0, y: 14 }, 2.8)
@@ -69,17 +60,9 @@ export function Scene05({ active, meta }: SceneProps) {
         </text>
       </svg>
 
-      {/* 전국 노드 → 중앙 클라우드 */}
-      <svg className="diagram-svg" viewBox="0 0 1920 1080" style={{ zIndex: 12 }}>
-        {MAP_NODES.map(([x, y], i) => (
-          <circle key={i} className="map-node" cx={x} cy={y} r="7" fill="var(--teal-soft)" opacity="0.85" />
-        ))}
-        <circle cx="1400" cy="560" r="46" fill="none" stroke="var(--cyan)" strokeWidth="2" opacity="0.7" />
-        <text className="d-txt sm" x="1400" y="566" style={{ fill: 'var(--cyan-soft)' }}>DaaS</text>
-      </svg>
-
       {/* 2026 차세대 사업 Data Badges */}
-      <div style={{ position: 'absolute', right: 176, bottom: 150, display: 'flex', gap: 80, alignItems: 'flex-end' }}>
+      <div className="business-metrics">
+        <div className="business-heading">2026 차세대 DaaS 사업</div>
         <div className="bd-budget">
           <DataBadge small value="0" unit="억원" label="2026 차세대 우본 DaaS 사업 규모 (약)" />
         </div>
@@ -89,6 +72,7 @@ export function Scene05({ active, meta }: SceneProps) {
         <div className="bd-until">
           <DataBadge small value="~2031" label="사업 기간 (약 5년)" />
         </div>
+        <div className="business-status">KT클라우드 우선협상대상자<br />틸론 최신 DaaS 적용</div>
       </div>
     </div>
   )

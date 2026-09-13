@@ -39,7 +39,7 @@ export function PresenterHUD() {
       <div className="h-col" style={{ alignItems: 'flex-end', width: 150 }}>
         <span className="h-k">경과</span>
         <span className="h-time">{fmt(elapsed)}</span>
-        <span className="h-k" style={{ marginTop: 6 }}>남음 (20:00)</span>
+        <span className="h-k" style={{ marginTop: 6 }}>남음 ({fmt(TOTAL_DURATION_SEC)})</span>
         <span className={`h-time${remaining < 0 ? ' over' : ''}`}>
           {remaining < 0 ? '-' : ''}
           {fmt(Math.abs(remaining))}

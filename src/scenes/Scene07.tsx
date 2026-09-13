@@ -23,9 +23,10 @@ export function Scene07({ active, meta }: SceneProps) {
         top={150}
         lines={[
           <>
-            학생 30명 = <em>GPU PC 30대</em>가
+            학생 30명에게
           </>,
-          <>정답일까요?</>,
+          <><em>GPU PC 30대</em>가</>,
+          <>필요할까요?</>,
         ]}
         sub="AI 실습에는 Python · CUDA · Framework — 그리고 GPU가 필요합니다."
       />
